@@ -218,9 +218,15 @@ for genre in genre_list:
 
 
 # Sidebar Contents
-st.sidebar.header('사용 방법')
+st.sidebar.markdown('# 사용 방법')
 # text = '**``장르``** 를 선택하면 해당 장르의 **``핵심 키워드``** 와 **``연관 키워드``**, **``키워드별 중요도``** 를 보여줍니다.'
-text = '**``장르``를 선택하면 해당 장르의 ``핵심 키워드``와 ``연관 키워드``, ``키워드별 중요도``를 보여줍니다.**'
+text = '##### ``장르``를 선택하면 해당 장르의 ``핵심 키워드``와 함께 ``연관 키워드``, ``키워드별 중요도``를 보여줍니다.'
 st.sidebar.markdown(text)
-st.sidebar.write('영화 외에도 더 많은 분야/산업 추가 예정입니다.')
+st.sidebar.markdown('##### 사이드바를 닫아주시고 장르를 선택해주세요.')
+
+for i in range(30):
+    st.sidebar.markdown('\n')
+st.sidebar.markdown('##### 영화 외에 더 많은 분야/산업 추가 예정입니다.')
+
+
 
