@@ -4,7 +4,7 @@ from pyecharts import options as opts
 from pyecharts.charts import Pie
 from streamlit_echarts import st_pyecharts
 import numpy as np
-# 결과표시 함수화, 활용 예시
+# 활용 예시
 # 글씨 색상
 # https://discuss.streamlit.io/t/a-way-to-build-your-own-unique-text-and-header/13943
 
@@ -219,7 +219,8 @@ for genre in genre_list:
 
 # Sidebar Contents
 st.sidebar.header('사용 방법')
-text = '**``장르``** 를 선택하면 해당 장르의 **``핵심 키워드``** 와 **``연관 키워드``**, **``키워드별 중요도``** 를 보여줍니다.'
+# text = '**``장르``** 를 선택하면 해당 장르의 **``핵심 키워드``** 와 **``연관 키워드``**, **``키워드별 중요도``** 를 보여줍니다.'
+text = '**``장르``를 선택하면 해당 장르의 ``핵심 키워드``와 ``연관 키워드``, ``키워드별 중요도``를 보여줍니다.**'
 st.sidebar.markdown(text)
 st.sidebar.write('영화 외에도 더 많은 분야/산업 추가 예정입니다.')
 

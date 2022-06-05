@@ -3,12 +3,13 @@
 - ``Streamlit`` 으로 서비스
 
 - ```python
-  # streamlit run file_name.py
-  streamlit run web.py
+  # Local에서 실행하는 방법
+  # streamlit run {file_name}.py
+  streamlit run app.py
   ```
 
 
 
-### Example
+### Deployment (with share streamlit)
 
 - (Capture)
