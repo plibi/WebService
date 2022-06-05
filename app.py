@@ -217,7 +217,7 @@ for genre in genre_list:
             visualize(df, True)
 
 
-# Sidebar
+# Sidebar Contents
 st.sidebar.header('사용 방법')
 text = '**``장르``** 를 선택하면 해당 장르의 **``핵심 키워드``** 와 **``연관 키워드``**, **``키워드별 중요도``** 를 보여줍니다.'
 st.sidebar.markdown(text)
