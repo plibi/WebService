@@ -224,7 +224,7 @@ text = '##### ``장르``를 선택하면 해당 장르의 ``핵심 키워드``�
 st.sidebar.markdown(text)
 st.sidebar.markdown('##### 사이드바를 닫아주시고 장르를 선택해주세요.')
 
-for i in range(30):
+for i in range(25):
     st.sidebar.markdown('\n')
 st.sidebar.markdown('##### 영화 외에 더 많은 분야/산업 추가 예정입니다.')
 
