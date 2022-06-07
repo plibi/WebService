@@ -120,8 +120,11 @@ def getsimilar(dataframe):
     st.markdown('##### 연관 키워드')
     for i in range(10):
         keyword = dataframe['word'][i]
-        similar = dataframe['similar_word'][i]
-        st.markdown(f'**``{keyword}``** 유사한 키워드: **{similar}**')
+        similar = ''
+        similar_list = dataframe['similar_word'][i]
+        for s_word in similar_list:
+            similar += f' **``{s_word}``**'
+        st.markdown(f'**``{keyword}``** 유사한 키워드: {similar}')
 
 
 # Keyword ratio visualizing function
@@ -191,13 +194,32 @@ genre_list = [
     '공포', '느와르', '모험', '범죄', '멜로애정로맨스',
     '애니메이션', '미스터리']
 
+st.write('활용 예시')
+st.markdown('1. 핵심 키워드 확인 및 의미 파악')
+st.markdown('2. 키워드 비중과 유사단어 확인 ')
+st.markdown('3. 제작시 고려해야 할 사항에 참고')
+st.write('ex) 드라마 장르 **``연기``** 라는 키워드가 최상위, 키워드 간 비중도 25%로 제일 높음')
+st.write('``연기``의 연관 키워드 ``배우``, ``장면``, ``연출``, ``감정`` 등 확인')
+st.write('=> 배우 섭외에 좀 더 예산사용하는 것 고려')
+st.write('ex2) **``감동``** 이라는 최상위 키워드와 함께 키워드간 비중 높음')
+st.write('**``감동``** 의 연관 키워드 ``실화``, ``억지`` 등 확인')
+st.write('=> ``억지``감동 주의, 과장되지 않고 자연스러운 전개로 감동을 이끌어내야함')
+st.write('=> ``실화``를 바탕으로 한 소재가 깊은 인상을 남김')
+
+
+# st.write('판타지에서 최상위 키워드 스토리')
+# st.write('=> 스토리 유사 키워드 확인')
+
 # Contents by genre
 for genre in genre_list:
     if st.button(genre):
         column1, column2 = st.columns(2)
         column3, column4 = st.columns(2)
 
-        df = getdata(genre)
+        try:
+            df = getdata(genre)
+        except:
+            st.write('준비 중입니다...')
 
         # 1. Keyword
         with column1:
