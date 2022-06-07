@@ -14,9 +14,9 @@ import numpy as np
 st.set_page_config(layout="wide")
 
 # Font test
-st.write('글씨 폰트 테스트')
-original_title = '<p style="font-family:Courier; color:Blue; font-size: 17px;">Original Image</p>'
-st.markdown(f'``{original_title}``', unsafe_allow_html=True)
+# st.write('글씨 폰트 테스트')
+# original_title = '<p style="font-family:Courier; color:Blue; font-size: 17px;">Original Image</p>'
+# st.markdown(f'``{original_title}``', unsafe_allow_html=True)
 
 
 # Button Custormizing
@@ -223,7 +223,7 @@ for i in range(len(genre_list)//3):
             g = st.button(part[i])
             button_list.append(g)
 
-
+# 드라마, 액션, 멜로
 # Main Contents
 for i, e in enumerate(button_list):
     if e:
