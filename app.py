@@ -37,14 +37,14 @@ def getdata(genre):
 
 # Print top 10 keyword
 def getkeyword(dataframe):
-    keyword_list = dataframe['word'].tolist()
+    keyword_list = dataframe[dataframe['all_ratio'] >= 3]['word'].tolist()
     top_10 = ''
     for word in keyword_list[:10]:
         top_10 += f' **``{word}``**'
 
     st.markdown(f'##### _{genre}_ 장르의 핵심 키워드')
     st.markdown(f'##### {top_10}')
-    st.markdown(f'등 총 {len(keyword_list)}개의 키워드 중 **상위 10개**의 키워드')
+    st.markdown(f'등 총 {len(dataframe)}개의 키워드 중 **상위 {len(keyword_list)}개**의 키워드')
 
 
 # Print similar word of keyword
@@ -169,7 +169,7 @@ for i, e in enumerate(button_list):
         else:
             df = getdata(genre_list[i])
             genre = genre_list[i]
-
+            
         # 1. Keyword
         with column1:
             st.write('\n')
