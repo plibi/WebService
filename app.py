@@ -13,12 +13,6 @@ import numpy as np
 # Set wide mode
 st.set_page_config(layout="wide")
 
-# Font test
-# st.write('글씨 폰트 테스트')
-# original_title = '<p style="font-family:Courier; color:Blue; font-size: 17px;">Original Image</p>'
-# st.markdown(f'``{original_title}``', unsafe_allow_html=True)
-
-
 # Button Custormizing
 m = st.markdown("""
 <style>
@@ -26,71 +20,6 @@ div.stButton > button:first-child {
     background-color: rgb(255, 255, 255);
 }
 </style>""", unsafe_allow_html=True)
-
-
-# cols = st.columns(17)
-# with cols[0]:
-#     drama = st.button('drama')
-# with cols[1]:
-#     sample = st.button('sample')
-
-# col, _ = st.columns(2)
-# with col:
-#     drama = st.button('drama',key="hi", kwargs={'class':'hi'})
-#     documentary = st.button('documentary')
-#     musical = st.button('musical')
-#     war = st.button('war')
-#     action = st.button('action')
-
-
-# if True:
-#     st.markdown(
-#         """
-#         <style>
-# @font-face{
-
-# }
-#     html, body, [class*="css"] {
-#     font_size: 100px;
-#     }
-#     </style>
-#     """, unsafe_allow_html=True
-#         )
-
-# st.markdown("""
-# <style>
-# .big-font {
-#     font-size:300px !important;
-# }
-# </style>
-# """, unsafe_allow_html=True)
-
-# st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
-
-# 폰트 변경 테스트
-# t = st.radio("Toggle to see font change", [True, False])
-# if t:
-#     st.markdown(
-#         """
-#         <style>
-# @font-face {
-#   font-family: 'JetBrains Mono';
-#   font-style: normal;
-#   font-weight: 400;
-#   src: url(https://fonts.gstatic.com/s/JetBrainMono/v12/IurY6Y5j_oScZZow4VOxCZZM.woff2) format('woff2');
-#   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-# }
-
-#     html, body, [class*="css"]  {
-#     font-family: 'JetBrains Mono';
-#     font-size: 15px;
-#     }
-#     </style>
-
-#     """,
-#         unsafe_allow_html=True,
-#     )
-# """This font will look different, based on your choice of radio button"""
 
 
 # ======================= Define Function =======================
@@ -110,7 +39,7 @@ def getkeyword(dataframe):
     for word in keyword_list[:10]:
         top_10 += f' **``{word}``**'
 
-    st.markdown(f'##### _{genre}_ 장르의 핵심 키워드')
+    st.markdown(f'##### {genre} 장르의 핵심 키워드')
     st.markdown(f'##### {top_10}')
     st.markdown(f'등 총 {len(keyword_list)}개의 키워드 중 **상위 10개**의 키워드')
 
@@ -123,8 +52,10 @@ def getsimilar(dataframe):
         similar = ''
         similar_list = dataframe['similar_word'][i]
         for s_word in similar_list:
-            similar += f' **``{s_word}``**'
-        st.markdown(f'**``{keyword}``** 유사한 키워드: {similar}')
+            similar += f'***{s_word}***, '
+        similar = similar[:-2]
+        st.markdown(f' **``{keyword}``** 유사한 키워드: {similar}')
+        # st.markdown(f'###### - {similar}')
 
 
 # Keyword ratio visualizing function
@@ -217,7 +148,6 @@ st.sidebar.markdown('##### 장르를 선택해주세요.')
 button_list = []
 for i in range(len(genre_list)//3):
     part = genre_list[i*3:i*3+3]
-    # genres = genre_en[i*3:i*3+3]
     t1, t2, t3 = st.sidebar.columns(3)
     for i, g in enumerate([t1, t2, t3]):
         with g:
@@ -257,7 +187,9 @@ for i, e in enumerate(button_list):
         with column4:       # Only top 10
             st.write('\n')
             visualize(df, True)
-st.markdown("<h1 style='text-align: center; color: red;'>Some title</h1>", unsafe_allow_html=True)
+
+ccc = '## ??? print'
+st.markdown("<h1 style='text-align: center; color: red;'>{# ccc}</h1>", unsafe_allow_html=True)
 
 for i in range(15):
     st.sidebar.markdown('\n')
