@@ -12,6 +12,7 @@
 
 ### Deployment (with share streamlit)
 
-- [Web Page Link](https://share.streamlit.io/plibi/webservice/app.py)
-- ![image-20220606013227200](README.assets/image-20220606013227200.png)
-- 
+- [Web Page Link](https://share.streamlit.io/plibi/webservice/app.py) 
+- ![image-20220616154033590](README.assets/image-20220616154033590.png)
+- Version 1.0,
+  Latest 22.6.10
